@@ -21,8 +21,27 @@ inter_data <- data.frame(data[c("INTER_STATISTIC","INTER_PVALUE", "INTER_DOF","I
 names(inter_data) = c("STATISTIC", "PVALUE", "DOF", "CRAMERV")
 inter_data$TEST = "Interaction"
 
+analysis_data = bind_rows(ndvi_data, sdc_015_data, inter_data)
+
+
+p <- ggplot(analysis_data %>% filter(TEST %in% c("Demography", "Greenery")), aes(x=TEST, y=PVALUE)) + 
+  geom_boxplot(fill='#dddddd', color="black") +
+  labs(title="Effect size for demography and greenery tests", x="Test", y = "Effect size")+
+  theme_classic()
+print(p)
+
+ggsave("C:\\Users\\xia_t\\Desktop\\Projects\\youreka\\src\\cramerv_box.png")
+
+p <- ggplot(analysis_data, aes(x=TEST, y=PVALUE)) + 
+  geom_boxplot(fill='#dddddd', color="black") +
+  labs(title="P-values for demography, greenery and interactions tests", x="Test", y = "P-value")+
+  theme_classic()
+print(p)
+
+ggsave("C:\\Users\\xia_t\\Desktop\\Projects\\youreka\\src\\pvalue_box.png")
+
 grouped_gghistostats(
-  data              = bind_rows(ndvi_data, sdc_015_data),
+  data              = analysis_data %>% filter(TEST %in% c("Demography", "Greenery")),
   binwidth          = 0.025,
   x                 = CRAMERV,
   type              = "robust",
@@ -38,7 +57,7 @@ grouped_gghistostats(
 ggsave("C:\\Users\\xia_t\\Desktop\\Projects\\youreka\\src\\cramerv_dist.png")
 
 grouped_gghistostats(
-  data              = bind_rows(ndvi_data, sdc_015_data, inter_data),
+  data              = analysis_data,
   binwidth          = 0.15,
   x                 = PVALUE,
   type              = "robust",
