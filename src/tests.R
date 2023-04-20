@@ -24,18 +24,20 @@ inter_data$TEST = "Interaction"
 analysis_data = bind_rows(ndvi_data, sdc_015_data, inter_data)
 
 
-p <- ggplot(analysis_data %>% filter(TEST %in% c("Demography", "Greenery")), aes(x=TEST, y=PVALUE)) + 
-  geom_boxplot(fill='#dddddd', color="black") +
-  labs(title="Effect size for demography and greenery tests", x="Test", y = "Effect size")+
-  theme_classic()
+p <- ggplot(analysis_data %>% filter(TEST %in% c("Demography", "Greenery")), aes(x=TEST, y=CRAMERV, fill=TEST)) +
+  geom_boxplot() +
+  labs(title="Effect size for demography and greenery tests", x="Test", y = "Effect size") +
+  theme_classic() +
+  scale_fill_manual(values=c("#bbbbbb", "#969696"))
 print(p)
 
 ggsave("C:\\Users\\xia_t\\Desktop\\Projects\\youreka\\src\\cramerv_box.png")
 
-p <- ggplot(analysis_data, aes(x=TEST, y=PVALUE)) + 
-  geom_boxplot(fill='#dddddd', color="black") +
+p <- ggplot(analysis_data, aes(x=TEST, y=PVALUE, fill=TEST)) + 
+  geom_boxplot() +
   labs(title="P-values for demography, greenery and interactions tests", x="Test", y = "P-value")+
-  theme_classic()
+  theme_classic() +
+  scale_fill_manual(values=c("#bbbbbb", "#969696", "#5f5f5f"))
 print(p)
 
 ggsave("C:\\Users\\xia_t\\Desktop\\Projects\\youreka\\src\\pvalue_box.png")
