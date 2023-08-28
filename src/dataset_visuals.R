@@ -4,7 +4,7 @@ library(ggplot2)
 library(ggstatsplot)
 library(ggpubr)
 
-data <- read.csv("C:\\Users\\xia_t\\Desktop\\Projects\\youreka\\dataset\\all_subsetted_group.csv")
+data <- read.csv("/home/dataset/tianyi/src/youreka/dataset/all_subsetted_group.csv")
 
 # filter mental health and indigenous status
 filtered <- data %>%
@@ -52,4 +52,4 @@ grouped_ggbarstats(
   package = "ggthemes",
   palette = "excel_Grayscale"
 )
-ggsave("C:\\Users\\xia_t\\Desktop\\Projects\\youreka\\src\\data_vis.png")
+ggsave("/home/tianyi/src/youreka/src/data_vis.png")
