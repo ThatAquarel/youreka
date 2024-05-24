@@ -23,7 +23,9 @@ Our study also significantly contrasts with previous studies. For this reason, f
 
 [![cramerv_dist](https://raw.githubusercontent.com/ThatAquarel/greenery/chi2/src/cramerv_dist.png)](https://raw.githubusercontent.com/ThatAquarel/greenery/chi2/src/cramerv_dist.png)
 
-[![pvalue_dist](https://raw.githubusercontent.com/ThatAquarel/greenery/chi2/src/pvalue_dist.png)](https://raw.githubusercontent.com/ThatAquarel/greenery/chi2/src/pvalue_dist.pngg)\
+[![pvalue_dist](https://raw.githubusercontent.com/ThatAquarel/greenery/chi2/src/pvalue_dist.png)](https://raw.githubusercontent.com/ThatAquarel/greenery/chi2/src/pvalue_dist.pngg)
+
+[![data_vis](https://raw.githubusercontent.com/ThatAquarel/greenery/chi2/src/data_vis.png)](https://raw.githubusercontent.com/ThatAquarel/greenery/chi2/src/data_vis.pngg)
 
 ## Paper
 
